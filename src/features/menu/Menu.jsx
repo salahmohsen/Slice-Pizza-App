@@ -1,5 +1,16 @@
+import MenuItem from "./MenuItem";
+
 function Menu() {
-  return <h1 className="white">Menu</h1>;
+  return (
+    <>
+      <MenuItem />
+      <MenuItem />
+      <MenuItem available={false} />
+      <MenuItem />
+      <MenuItem />
+      <MenuItem />
+    </>
+  );
 }
 
 export default Menu;
