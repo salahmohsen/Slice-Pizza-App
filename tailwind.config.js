@@ -2,6 +2,7 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    "h-screen": "100dvh",
     extend: {
       fontFamily: {
         logo: ["Passion One", "sans-serif"],
@@ -16,5 +17,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/container-queries")],
 };
