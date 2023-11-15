@@ -1,3 +1,4 @@
+import Footer from "../../ui/Footer";
 import MenuItem from "./MenuItem";
 
 function Menu() {
@@ -9,6 +10,7 @@ function Menu() {
       <MenuItem />
       <MenuItem />
       <MenuItem />
+      <Footer />
     </>
   );
 }
