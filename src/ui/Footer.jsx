@@ -1,6 +1,7 @@
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { GiFullPizza } from "react-icons/gi";
 import { PiMoneyThin } from "react-icons/pi";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -16,12 +17,14 @@ function Footer() {
             </span>
             <span className="pl-1 ">12$</span>
           </p>
-          <p className="flex h-full items-center">
-            Open Cart
-            <span className="pl-2">
-              <HiOutlineShoppingCart />
-            </span>
-          </p>
+          <Link to={"/cart"}>
+            <p className="flex h-full items-center">
+              Open Cart
+              <span className="pl-2">
+                <HiOutlineShoppingCart />
+              </span>
+            </p>
+          </Link>
         </div>
       </div>
     </>

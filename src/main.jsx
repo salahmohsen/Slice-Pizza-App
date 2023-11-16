@@ -7,6 +7,7 @@ import AppLayout from "./ui/AppLayout.jsx";
 import Error from "./ui/Error.jsx";
 import Home from "./ui/Home.jsx";
 import MenuLoader from "./features/menu/MenuLoader.jsx";
+import Cart from "./features/cart/Cart.jsx";
 
 const router = createBrowserRouter([
   {
@@ -14,7 +15,8 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       { path: "/", element: <Home /> },
-      { path: "menu", element: <Menu />, loader: MenuLoader },
+      { path: "/menu", element: <Menu />, loader: MenuLoader },
+      { path: "/cart", element: <Cart /> },
     ],
   },
 ]);

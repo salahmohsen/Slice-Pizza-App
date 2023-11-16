@@ -12,7 +12,7 @@ function MenuItem({ available = true }) {
       </div>
       <div className="flex w-full grow  flex-col text-center sm:h-full sm:border-r">
         <div className="border-t py-2 sm:border-t-0">Margherita</div>
-        <div className="border-t py-2">Tomato, Mozzarella, Basil</div>
+        <div className="border-t py-2 font-thin">Tomato, Mozzarella, Basil</div>
         <div className="border-t py-2 text-xl font-thin">€12.00</div>
       </div>
       <div className="flex w-full grow-0  items-center justify-between border-t sm:h-full sm:w-96 sm:border-b ">

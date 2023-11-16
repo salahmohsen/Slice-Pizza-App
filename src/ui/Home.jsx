@@ -1,25 +1,34 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+
 function Home() {
+  const [userName, setUserName] = useState("");
+
   return (
     <>
-      <div className="flex h-[80dvh] flex-col items-center justify-center gap-3 text-center text-2xl sm:text-3xl lg:text-4xl">
+      <div className="flex h-[80dvh] flex-col items-center justify-center gap-5 text-center text-2xl sm:text-3xl lg:text-4xl">
         <div className="flex flex-col gap-3 sm:flex-row sm:gap-1">
           <p className=" text-red ">The Best Pizza For You,</p>
-          <form id="StartOrdering">
-            <input
-              type="text"
-              placeholder="Your Name"
-              className="w-auto max-w-[11rem] rounded-md bg-bg-input px-2 text-center capitalize text-yellow outline-none placeholder:text-center sm:max-w-[15rem]"
-            />
-          </form>
+          <input
+            type="text"
+            placeholder="Your Name"
+            value={userName}
+            onChange={(e) => setUserName(e.target.value)}
+            style={{ width: `${userName.length}ch` }}
+            className={`m-auto min-w-[9rem] max-w-[16rem]  rounded-md bg-bg-input px-2 py-1 text-center capitalize text-yellow outline-none placeholder:text-center placeholder:font-thin sm:min-w-[11rem] sm:max-w-[15rem] lg:min-w-[13rem]`}
+          />
         </div>
-        <div className="">Straight out of the oven, straight to you.</div>
-        <button
+        <div className="font-thin">
+          Straight out of the oven, straight to you.
+        </div>
+        <Link
+          to={"/menu"}
           type="submit"
           form="StartOrdering"
-          className="mt-5 w-1/2 overflow-hidden rounded-full border border-red bg-transparent px-6 py-3  text-base transition-all duration-700 ease-out  hover:bg-red sm:text-2xl"
+          className="flex w-1/3 items-center  justify-center overflow-hidden rounded-full border border-red bg-transparent px-6 py-3 text-base transition-all duration-700 ease-in-out  hover:bg-red sm:text-2xl"
         >
           Start Ordering
-        </button>
+        </Link>
       </div>
     </>
     // <div className="@container/main m-auto flex h-[70dvh] w-1/3 flex-col items-center justify-center gap-5 text-2xl	">
