@@ -12,7 +12,7 @@ function AppLayout() {
         </Link>
         <Search />
       </div>
-      <div className="mb-32 mt-10">
+      <div>
         <Outlet />
       </div>
     </div>

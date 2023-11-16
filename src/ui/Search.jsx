@@ -9,7 +9,7 @@ function Search() {
         </span>
         <input
           type="text"
-          placeholder={"Hello, Salah - Search For Order"}
+          placeholder={"Search For Order..."}
           id="search"
           className="w-1 rounded-full bg-red py-2 pl-12 font-logo text-sm uppercase text-white outline-0 duration-500  ease-in-out placeholder:capitalize placeholder:italic hover:w-72 hover:bg-bg-input hover:pl-11 hover:pr-5 "
         />
