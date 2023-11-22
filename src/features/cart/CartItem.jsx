@@ -2,7 +2,7 @@ function CartItem() {
   return (
     <div className="mb-5 border-b pb-5">
       <div className=" flex items-center justify-center gap-4 text-xs sm:gap-10 sm:text-sm xl:text-xl">
-        <div className="flex grow-0 items-center justify-between gap-2 rounded-lg bg-red px-2 py-1 font-thin sm:gap-4 sm:px-4">
+        <div className="flex grow-0 items-center justify-between gap-2 rounded-lg bg-transparent px-2 py-1 font-thin outline outline-1 sm:gap-4 sm:px-4">
           <div>-</div>
           <div>1</div>
           <div>+</div>

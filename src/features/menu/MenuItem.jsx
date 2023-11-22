@@ -1,11 +1,11 @@
 function MenuItem({ available = true }) {
   return (
-    <div className="mt-3 flex flex-col items-center justify-center border transition-all duration-300 @container hover:saturate-0 sm:flex-row">
+    <div className="mt-3 flex flex-col items-center justify-center border transition-all duration-300 @container sm:flex-row">
       <div className="h-[200px] w-full grow-0 sm:h-32 sm:w-[600px] sm:border-r">
         <img
           src="https://dclaevazetcjjkrzczpc.supabase.co/storage/v1/object/public/pizzas/pizza-1.jpg"
           alt="Margherita"
-          className={`h-full w-full object-cover ${
+          className={`h-full w-full object-cover  ${
             available ? "saturate-100" : "saturate-0"
           }`}
         />

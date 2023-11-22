@@ -15,7 +15,7 @@ function Home() {
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
             style={{ width: `${userName.length}ch` }}
-            className={`m-auto min-w-[5rem] max-w-[10rem]  rounded-md bg-bg-input px-2 py-1 text-center capitalize text-yellow outline-none placeholder:text-center placeholder:font-thin sm:min-w-[11rem] sm:max-w-[15rem] lg:min-w-[13rem]`}
+            className={`m-auto min-w-[5rem] max-w-[10rem]  rounded-md bg-bg-input px-2 py-1 text-center capitalize text-yellow outline-none placeholder:text-center placeholder:font-thin sm:min-w-[11rem] sm:max-w-[15rem] lg:min-w-[16rem]`}
           />
         </div>
         <div className="font-thin">

@@ -8,6 +8,8 @@ import Error from "./ui/Error.jsx";
 import Home from "./ui/Home.jsx";
 import MenuLoader from "./features/menu/MenuLoader.jsx";
 import Cart from "./features/cart/Cart.jsx";
+import Order from "./features/order/Order.jsx";
+import CreateOrder from "./features/order/CreateOrder.jsx";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +19,8 @@ const router = createBrowserRouter([
       { path: "/", element: <Home /> },
       { path: "/menu", element: <Menu />, loader: MenuLoader },
       { path: "/cart", element: <Cart /> },
+      { path: "/order/new", element: <CreateOrder /> },
+      { path: "/order/:id", element: <Order /> },
     ],
   },
 ]);
