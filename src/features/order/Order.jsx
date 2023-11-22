@@ -2,7 +2,7 @@ import OrderItem from "./OrderItem";
 
 function Order() {
   return (
-    <div className="mt-10 flex  flex-col items-center justify-start border border-b-0 text-xs lg:text-lg">
+    <div className="my-10 flex  flex-col items-center justify-start border border-b-0 text-xs lg:text-lg">
       <div className=" flex w-full  items-center  border-b  ">
         <p className=" basis-1/2 border-r px-2 py-2 ">
           Order{" "}
