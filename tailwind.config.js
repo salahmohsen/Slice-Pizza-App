@@ -15,6 +15,7 @@ export default {
         white: "#f9f4da",
         "bg-input": "#231F20",
       },
+      animation: { "spin-slow": "spin 4s linear infinite" },
     },
   },
   plugins: [require("@tailwindcss/container-queries")],

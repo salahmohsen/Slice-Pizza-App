@@ -2,6 +2,7 @@ import { Link, Outlet, useNavigation } from "react-router-dom";
 import Logo from "./Logo";
 import Search from "./Search";
 import Loader from "./Loader";
+import User from "../features/user/User";
 
 function AppLayout() {
   const navigation = useNavigation();
@@ -14,7 +15,10 @@ function AppLayout() {
           <Link to={"/"}>
             <Logo />
           </Link>
-          <Search />
+          <div className="flex items-center justify-center gap-5">
+            <User />
+            <Search />
+          </div>
         </div>
         <div>
           <Outlet />
