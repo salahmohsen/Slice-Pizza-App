@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { updateName } from "../features/user/userSlice";
 
@@ -14,7 +14,9 @@ function Home() {
     dispatch(updateName(userName));
     navigate("/menu");
   }
+  const username = useSelector((state) => state.user.username);
 
+  console.log(username);
   return (
     <>
       <div className=" flex h-[80dvh] flex-col items-center justify-center gap-2 text-center sm:text-base md:text-4xl lg:text-4xl xl:text-5xl  ">
@@ -22,7 +24,7 @@ function Home() {
           <p className=" text-red ">The Best Pizza For You,</p>
           <input
             type="text"
-            placeholder="Your Name"
+            placeholder={username ? `${username}` : "Your Name"}
             value={userName}
             form="StartOrdering"
             autoComplete="cc-name"
