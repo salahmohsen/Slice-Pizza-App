@@ -12,7 +12,7 @@ function AppLayout() {
       <div className="m-auto w-5/6">
         <div className=" flex flex-col items-center justify-between sm:flex-row">
           <Link to={"/"} className="w-sm">
-            <img src="/public/assets/logo.svg" alt="SLICE" />
+            <img src="/assets/logo.svg" alt="SLICE" />
           </Link>
           <div className="flex items-center justify-center gap-5">
             <User />
