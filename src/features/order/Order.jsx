@@ -5,8 +5,10 @@ function Order() {
     <div className="my-10 flex  flex-col items-center justify-start border border-b-0 text-xs lg:text-lg">
       <div className=" flex w-full  items-center  border-b  ">
         <p className=" basis-1/2 border-r px-2 py-2 ">
-          Order{" "}
-          <span className=" rounded-sm bg-yellow px-0.5 py-0">#DGDFGG</span>{" "}
+          Order
+          <span className=" mx-2 rounded-sm bg-yellow px-0.5 py-0">
+            #DGDFGG
+          </span>
           Status
         </p>
         <div className="flex w-full items-center justify-center gap-1">

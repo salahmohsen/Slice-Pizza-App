@@ -1,7 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import { getMenu } from "../../services/apiResturant";
-import Footer from "../../ui/Footer";
 import MenuItem from "./MenuItem";
+import CartOverview from "../../ui/CartOverview";
 
 function Menu() {
   const menu = useLoaderData();
@@ -10,7 +10,7 @@ function Menu() {
       {menu.map((pizza) => (
         <MenuItem pizza={pizza} key={pizza.id} />
       ))}
-      <Footer />
+      <CartOverview />
     </div>
   );
 }
