@@ -38,10 +38,16 @@ function MenuItem({ pizza }) {
           }`}
         />
       </div>
-      <div className="flex w-full grow  flex-col text-center sm:h-36 sm:border-r">
-        <div className="border-t py-2 sm:border-t-0">{name}</div>
-        <div className="border-t py-2 font-thin">{ingredients.join(", ")}</div>
-        <div className="border-t py-2 text-xl font-thin">€{unitPrice}</div>
+      <div className="flex w-full grow flex-col text-center sm:h-36 sm:border-r ">
+        <div className="flex grow-0 items-center justify-center border-t py-2 sm:border-t-0">
+          {name}
+        </div>
+        <div className="flex grow items-center justify-center border-t py-2 font-thin">
+          {ingredients.join(", ")}
+        </div>
+        <div className="flex grow-0 items-center justify-center border-t py-2 text-xl font-thin">
+          €{unitPrice}
+        </div>
       </div>
       {inCart && (
         <div className="flex w-full grow-0  items-center justify-between border-t sm:h-36 sm:w-96 sm:border-b ">
