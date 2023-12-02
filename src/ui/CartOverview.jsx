@@ -1,4 +1,5 @@
 import { HiOutlineShoppingCart } from "react-icons/hi";
+import { HiCurrencyPound } from "react-icons/hi2";
 import { GiFullPizza } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -22,7 +23,10 @@ function CartOverview() {
             <span className="pl-2">
               <GiFullPizza />
             </span>
-            <span className="pl-1 ">{totalCartPrice}$</span>
+            <span className="pl-1 ">{totalCartPrice}</span>
+            <span className="pl-1 ">
+              <HiCurrencyPound />
+            </span>
           </p>
           {totoalCartQuantity > 0 ? (
             <Link to={"/cart"}>

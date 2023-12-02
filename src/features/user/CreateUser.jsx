@@ -3,7 +3,7 @@ function CreateUser({ username, setUserName }) {
     <input
       type="text"
       placeholder="Your Name"
-      defaultValue={username ? `${username}` : null}
+      defaultValue={username ? username : null}
       form="StartOrdering"
       autoComplete="cc-name"
       onChange={(e) => setUserName(e.target.value)}
