@@ -1,9 +1,14 @@
+import { useSelector } from "react-redux";
+import { getUser } from "./userSlice";
+
 function CreateUser({ username, setUserName }) {
+  const reduxUsername = useSelector(getUser);
+
   return (
     <input
       type="text"
       placeholder="Your Name"
-      defaultValue={username ? username : null}
+      defaultValue={reduxUsername}
       form="StartOrdering"
       autoComplete="cc-name"
       onChange={(e) => setUserName(e.target.value)}

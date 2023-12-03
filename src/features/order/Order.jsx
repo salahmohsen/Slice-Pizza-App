@@ -1,33 +1,69 @@
+import { IoTimeOutline } from "react-icons/io5";
+import { useFetcher, useLoaderData } from "react-router-dom";
 import OrderItem from "./OrderItem";
+import {
+  calcMinutesLeft,
+  formatCurrency,
+  formatDate,
+} from "../../utils/helpers";
+import { useEffect } from "react";
+import { getOrder } from "../../services/apiResturant";
 
 function Order() {
+  const order = useLoaderData();
+  const {
+    id,
+    status,
+    priority,
+    priorityPrice,
+    orderPrice,
+    estimatedDelivery,
+    cart,
+  } = order;
+  const deliveryIn = calcMinutesLeft(estimatedDelivery);
+
+  const fetcher = useFetcher();
+  useEffect(() => {
+    if (!fetcher.data && fetcher.state === "idle") fetcher.load("/menu");
+  }, [fetcher]);
+
   return (
     <div className="my-10 flex  flex-col items-center justify-start border border-b-0 text-xs lg:text-lg">
       <div className=" flex w-full  items-center  border-b  ">
         <p className=" basis-1/2 border-r px-2 py-2 ">
           Order
-          <span className=" mx-2 rounded-sm bg-yellow px-0.5 py-0">
-            #DGDFGG
-          </span>
+          <span className=" mx-2 rounded-sm bg-yellow px-0.5 py-0">#{id}</span>
           Status
         </p>
-        <div className="flex w-full items-center justify-center gap-1">
-          <div className="rounded-sm bg-blue-green px-2 py-0 ">
-            Preparing Order
-          </div>
-          <div className="rounded-sm bg-red px-2 py-0">Priority</div>
+        <div className="flex w-full items-center justify-center gap-1 font-thin">
+          <div className="rounded-sm bg-blue-green px-2 py-0 ">Preparing</div>
+          {priority && (
+            <div className="rounded-sm bg-red px-2 py-0">Priority</div>
+          )}
         </div>
       </div>
       <div className="  flex w-full items-center  border-b  ">
-        <p className="basis-1/2 border-r px-2 py-2">
-          Estimated Delivery To Arrive
+        <p className="basis-1/2 border-r px-2 py-2">Estimated Delivery Time</p>
+        <p className="flex w-full grow justify-center gap-2 font-thin sm:gap-6">
+          <span> {formatDate(estimatedDelivery)}</span>
+          <span className="flex items-center ">
+            <IoTimeOutline />
+          </span>
+          <span> Only {deliveryIn} minutes left</span>
         </p>
-        <p className="flex w-full grow justify-center ">3H:28M:32S</p>
       </div>
-      <OrderItem />
-      <OrderItem />
-      <OrderItem />
-      <OrderItem />
+      {cart.map((item) => {
+        return (
+          <OrderItem
+            item={item}
+            key={item.pizzaId}
+            isLoadingIngredients={fetcher.state === "loading"}
+            ingredients={
+              fetcher.data?.find((el) => el.id === item.pizzaId).ingredients
+            }
+          />
+        );
+      })}
       <div className="flex w-full border-b">
         <div className="flex w-full flex-col">
           <div className="flex h-full border-b px-2">
@@ -35,7 +71,7 @@ function Order() {
               Pizza Price
             </p>
             <p className="flex grow items-center justify-center border-l text-lg font-thin lg:text-2xl">
-              $128
+              ${orderPrice}
             </p>
           </div>
           <div className="flex h-full border-b px-2">
@@ -43,7 +79,7 @@ function Order() {
               Priority Price
             </p>
             <p className="flex grow items-center justify-center border-l text-lg font-thin lg:text-2xl">
-              $6
+              ${priorityPrice}
             </p>
           </div>
           <div className="flex h-full  px-2">
@@ -51,16 +87,23 @@ function Order() {
               Total Price
             </p>
             <p className="flex grow items-center justify-center border-l text-lg font-bold lg:text-2xl">
-              $134
+              {formatCurrency(orderPrice + priorityPrice)}
             </p>
           </div>
         </div>
       </div>
-      <button className="w-full border-b py-2 transition-colors duration-300 ease-in-out hover:bg-white hover:text-black">
-        Make Priority
-      </button>
+      {!priority && (
+        <button className="w-full border-b py-2 transition-colors duration-300 ease-in-out hover:bg-white hover:text-black">
+          Make Priority
+        </button>
+      )}
     </div>
   );
+}
+
+export async function loader({ params }) {
+  const order = getOrder(params.orderId);
+  return order;
 }
 
 export default Order;

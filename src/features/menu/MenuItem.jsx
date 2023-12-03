@@ -8,14 +8,21 @@ import {
 } from "../cart/cartSlice";
 
 function MenuItem({ pizza }) {
-  const { id, name, imageUrl, ingredients, soldOut, unitPrice } = pizza;
+  const {
+    id: pizzaId,
+    name,
+    imageUrl,
+    ingredients,
+    soldOut,
+    unitPrice,
+  } = pizza;
   const dispatch = useDispatch();
-  const inCart = useSelector(isCurrentItemInCart(id));
-  const itemQuantity = useSelector(getItem(id))?.quantity;
+  const inCart = useSelector(isCurrentItemInCart(pizzaId));
+  const itemQuantity = useSelector(getItem(pizzaId))?.quantity;
 
   function handleAddItem() {
     const newItem = {
-      id,
+      pizzaId,
       name,
       quantity: 1,
       unitPrice,

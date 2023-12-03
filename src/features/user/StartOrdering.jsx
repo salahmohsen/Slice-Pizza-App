@@ -1,18 +1,18 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { updateName } from "./userSlice";
+import { getUser, updateName } from "./userSlice";
 
-function StartOrdering({ username }) {
+function StartOrdering({ username, setUserName }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const reduxUsername = useSelector(getUser);
 
   function handleStartOrdering(e) {
     e.preventDefault();
-    if (!username) return;
     dispatch(updateName(username));
+    setUserName(username);
     navigate("/menu");
   }
-
   if (username)
     return (
       <button

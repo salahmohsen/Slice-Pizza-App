@@ -9,9 +9,11 @@ import Home from "./ui/Home.jsx";
 import Cart from "./features/cart/Cart.jsx";
 import Order from "./features/order/Order.jsx";
 import CreateOrder from "./features/order/CreateOrder.jsx";
+import { action as createOrderAction } from "./features/order/CreateOrder";
 import store from "./store";
 import { Provider } from "react-redux";
 import { loader as menuLoader } from "./features/menu/Menu";
+import { loader as orderLoader } from "./features/order/Order";
 
 const router = createBrowserRouter([
   {
@@ -21,8 +23,12 @@ const router = createBrowserRouter([
       { path: "/", element: <Home /> },
       { path: "/menu", element: <Menu />, loader: menuLoader },
       { path: "/cart", element: <Cart /> },
-      { path: "/order/new", element: <CreateOrder /> },
-      { path: "/order/:id", element: <Order /> },
+      {
+        path: "/order/new",
+        element: <CreateOrder />,
+        action: createOrderAction,
+      },
+      { path: "/order/:orderId", element: <Order />, loader: orderLoader },
     ],
   },
 ]);
