@@ -18,6 +18,7 @@ function MenuItem({ pizza }) {
   } = pizza;
   const dispatch = useDispatch();
   const inCart = useSelector(isCurrentItemInCart(pizzaId));
+  console.log(inCart);
   const itemQuantity = useSelector(getItem(pizzaId))?.quantity;
 
   function handleAddItem() {
@@ -60,7 +61,7 @@ function MenuItem({ pizza }) {
         <div className="flex w-full grow-0  items-center justify-between border-t sm:h-36 sm:w-96 sm:border-b ">
           <button
             disabled={soldOut}
-            onClick={() => dispatch(decreaseItemQuantity(id))}
+            onClick={() => dispatch(decreaseItemQuantity(pizzaId))}
             className="h-full w-1/3 py-3 text-center hover:bg-white hover:text-black disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-white	 sm:h-36"
           >
             -
@@ -70,7 +71,7 @@ function MenuItem({ pizza }) {
           </p>
           <button
             disabled={soldOut}
-            onClick={() => dispatch(increaseItemQuantity(id))}
+            onClick={() => dispatch(increaseItemQuantity(pizzaId))}
             className="h-full w-1/3 py-3 text-center hover:bg-white hover:text-black disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-white	 sm:h-36"
           >
             +
