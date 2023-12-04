@@ -13,6 +13,7 @@ import { useState } from "react";
 import { createOrder } from "../../services/apiResturant";
 import store from "../../store";
 import { CiWarning } from "react-icons/ci";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 const isValidPhone = (str) =>
   /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/.test(
@@ -118,9 +119,11 @@ function CreateOrder() {
             disabled={isSubmitting || isAdressLoading}
             className=" rounded-md px-2 py-1 text-lg hover:bg-white hover:text-black disabled:animate-pulse"
           >
-            {isSubmitting
-              ? "Placing Order..."
-              : `Order Now For ${formatCurrency(totalPrice + priortyPrice)}$`}
+            {isSubmitting ? (
+              <AiOutlineLoading3Quarters className="animate-spin" />
+            ) : (
+              `Order Now For ${formatCurrency(totalPrice + priortyPrice)}$`
+            )}
           </button>
         </div>
       </Form>

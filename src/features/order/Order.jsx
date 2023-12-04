@@ -8,6 +8,7 @@ import {
 } from "../../utils/helpers";
 import { useEffect } from "react";
 import { getOrder } from "../../services/apiResturant";
+import UpdateOrder from "./UpdateOrder";
 
 function Order() {
   const order = useLoaderData();
@@ -92,11 +93,7 @@ function Order() {
           </div>
         </div>
       </div>
-      {!priority && (
-        <button className="w-full border-b py-2 transition-colors duration-300 ease-in-out hover:bg-white hover:text-black">
-          Make Priority
-        </button>
-      )}
+      {!priority && <UpdateOrder />}
     </div>
   );
 }
