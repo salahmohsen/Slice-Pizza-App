@@ -33,7 +33,7 @@ function Order() {
       <div className=" flex w-full  items-center  border-b  ">
         <p className=" basis-1/2 border-r px-2 py-2 ">
           Order
-          <span className=" mx-2 rounded-sm bg-yellow px-0.5 py-0">#{id}</span>
+          <span className=" mx-2 rounded-sm bg-yellow px-1 py-0">{id}</span>
           Status
         </p>
         <div className="flex w-full items-center justify-center gap-1 font-thin">
