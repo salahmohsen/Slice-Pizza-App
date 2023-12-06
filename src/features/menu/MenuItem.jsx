@@ -18,7 +18,6 @@ function MenuItem({ pizza }) {
   } = pizza;
   const dispatch = useDispatch();
   const inCart = useSelector(isCurrentItemInCart(pizzaId));
-  console.log(inCart);
   const itemQuantity = useSelector(getItem(pizzaId))?.quantity;
 
   function handleAddItem() {

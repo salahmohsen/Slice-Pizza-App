@@ -9,11 +9,11 @@ function StartOrdering({ username, setUserName }) {
 
   function handleStartOrdering(e) {
     e.preventDefault();
-    dispatch(updateName(username));
     setUserName(username);
+    dispatch(updateName(username));
     navigate("/menu");
   }
-  if (username)
+  if (username || reduxUsername)
     return (
       <button
         type="submit"

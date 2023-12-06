@@ -26,7 +26,6 @@ function CreateOrder() {
   const navigation = useNavigation();
   const formErrors = useActionData();
   const [withPriority, setWithPriority] = useState(false);
-  console.log(withPriority);
   const {
     username,
     status: addressStatus,
@@ -75,14 +74,14 @@ function CreateOrder() {
             )}
           </div>
         </div>
-        <div className="relative flex flex-col gap-2 sm:flex-row sm:items-center">
+        <div className="relative z-0 flex flex-col gap-2 sm:flex-row sm:items-center">
           <label className="min-w-[10rem] grow-0">Address</label>
           <input
             type="text"
             name="address"
             defaultValue={address}
             required
-            className=" h-7 grow rounded-md bg-bg-input px-3 capitalize   focus:shadow-sm focus:shadow-yellow/30 focus:outline-0"
+            className=" h-7 grow rounded-md bg-bg-input px-3 capitalize focus:shadow-sm focus:shadow-yellow/30 focus:outline-0"
           />
           <button
             className="absolute bottom-[3px] right-2 z-10 bg-bg-input px-2 py-0.5  text-xs capitalize disabled:animate-bounce disabled:cursor-not-allowed"

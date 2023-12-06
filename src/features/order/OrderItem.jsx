@@ -7,7 +7,11 @@ function OrderItem({ item, isLoadingIngredients, ingredients }) {
       <div className="flex grow flex-col justify-center px-2 py-2 ">
         <p className="">{name}</p>
         <p className="font-thin">
-          {isLoadingIngredients ? "Loading..." : ingredients?.join(", ")}
+          {isLoadingIngredients ? (
+            <span className="animate-pulse">Loading...</span>
+          ) : (
+            ingredients?.join(", ")
+          )}
         </p>
       </div>
       <p className=" flex items-center border-l px-2 py-2 text-sm font-thin lg:text-2xl">
