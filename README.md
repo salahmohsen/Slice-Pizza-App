@@ -118,6 +118,3 @@ This project is written based on a [Jonas Schmedtmann Ultimate React Course](htt
 
 Special thanks to Jonas Schmedtmann for the valuable educational content.
 
-[**Return**](#-quick-links)
-
----
